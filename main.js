@@ -2,8 +2,6 @@ const quoteEl = document.querySelector("#quote")
 const character = document.querySelector("#character")
 const charImg = document.querySelector("#char-image")
 const button = document.querySelector("#button")
-const twitter = document.querySelector("#twitter")
-const twitterLogo = document.querySelector("#twitter-logo")
 
 function randomize() {
     let rgbcolor;
@@ -15,7 +13,7 @@ function randomize() {
     document.body.style.background = rgbColor
     button.style.background = rgbColor
     quoteEl.style.color = rgbcolor
-    twitterLogo.color = rgbcolor
+
 
   
     red = ("0" + red.toString(16)).substr(-2).toUpperCase()
@@ -35,12 +33,12 @@ const getQuote = async()=> {
 
 
 const startQuote = async () => {
-    const quote = await getQuote()
-    console.log(quote)
-    quoteEl.textContent = `"${quote[0].quote}"`
-    character.textContent = `- ${quote[0].character}`
-    charImg.src = quote[0].image
-    twitter.href =`https://twitter.com/intent/tweet?text=${quote[0].quote}" - ${quote[0].character}`
+    let quote = await getQuote()
+    quote = quote[0]
+    quoteEl.textContent = `"${quote.quote}"`
+    character.textContent = `- ${quote.character}`
+    charImg.src = quote.image
+    twitter.href =`https://twitter.com/intent/tweet?text=${quote.quote}" - ${quote.character}`
     randomize();
     
 }
