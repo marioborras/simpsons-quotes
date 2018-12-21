@@ -3,8 +3,8 @@ const character = document.querySelector("#character")
 const charImg = document.querySelector("#char-image")
 const button = document.querySelector("#button")
 
-function randomize() {
-    let rgbcolor;
+const randomize = () => {
+    let rgbcolor
     red = Math.floor(Math.random() * 250 + 0)
     green = Math.floor(Math.random() * 250 + 0)
     blue = Math.floor(Math.random() * 250 + 0)
@@ -39,7 +39,7 @@ const startQuote = async () => {
     character.textContent = `- ${quote.character}`
     charImg.src = quote.image
     twitter.href =`https://twitter.com/intent/tweet?text=${quote.quote}" - ${quote.character}`
-    randomize();
+    randomize()
     
 }
 
